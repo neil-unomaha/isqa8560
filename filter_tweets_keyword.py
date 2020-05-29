@@ -9,6 +9,9 @@ print("Number of tweets extracted: {}.\n".format(len(tweets_ary)))
 filtered_tweets_ary = []
 
 for tweet in tweets_ary:
+    if(tweet['text'].find('RT') == 0):
+        continue
+    
     lcase_tweet_txt = tweet['text'].lower()
     if(lcase_tweet_txt.find('china') > -1):
         filtered_tweets_ary.append(tweet)
@@ -25,6 +28,10 @@ for tweet in tweets_ary:
     elif(lcase_tweet_txt.find('reopen') > -1):
         filtered_tweets_ary.append(tweet)
     elif(lcase_tweet_txt.find('fauci') > -1):
+        filtered_tweets_ary.append(tweet)
+    elif(lcase_tweet_txt.find('testing') > -1):
+        filtered_tweets_ary.append(tweet)
+    elif(lcase_tweet_txt.find('tests') > -1):
         filtered_tweets_ary.append(tweet)
         
 with open("tweets_keyword_filtered.json", "w") as outfile:
